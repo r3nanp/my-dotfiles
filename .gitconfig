@@ -1,0 +1,32 @@
+[user]
+	name = Renan Pereira
+	email = renan.souza.dev@gmail.com
+
+[alias]
+	p = push
+  ci = commit
+  co = checkout
+  cm = checkout main
+  cb = checkout -b
+  st = status -sb
+  sf = show --name-only
+  lg = log --pretty-format
+  l = log --pretty=format:'%Cred%h%Creset %C(bold)%cr%Creset %Cgreen<%an>%Creset %s' --max-count=30
+  
+  # List incoming & outgoing commits (compares to remote)
+	incoming = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' ..@{u})
+	outgoing = !(git fetch --quiet && git log --pretty=format:'%C(yellow)%h %C(white)- %C(red)%an %C(white)- %C(cyan)%d%Creset %s %C(white)- %ar%Creset' @{u}..)
+
+  lb = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+  undo = checkout --
+  db = branch -D
+
+  unstage = reset HEAD --
+	# Reset all changes applied to a file
+	discard = checkout --
+
+	# Undo the last commit but keep changes
+	rollback = reset --soft HEAD~1
+[pull]
+	# Fast=forward without creating new commits
+	ff = only
