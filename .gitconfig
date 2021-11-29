@@ -30,3 +30,5 @@
 [pull]
 	# Fast=forward without creating new commits
 	ff = only
+[init]
+  defaultBranch = main
